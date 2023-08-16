@@ -7,13 +7,13 @@ root {
                     inputAttr {
                         /* 0:touch 1:key 2:keyboard 3:mouse 4:button 5:crown 6:encoder */
                         inputType = 0;
-                        solutionX = 480;
-                        solutionY = 960;
+                        solutionX = 800;
+                        solutionY = 480;
                         devName = "main_touch";
                     }
 
 // Hi3516DV300-Runhe  gt911--5p5 & 4p0
-                    busConfig {
+/*                    busConfig {
                         // 0:i2c 1:spi
                         busType = 0;
                         busNum = 6;
@@ -29,6 +29,7 @@ root {
                         rstRegCfg = [0x112f0094, 0x400];
                         intRegCfg = [0x112f0098, 0x400];
                     }
+*/
 
 // Hi3516DV300-Ruishi gt911--7p0
 /*
@@ -68,9 +69,25 @@ root {
                         intRegCfg = [0x112f0098, 0x5f0];
                     }
 */
+// Amlogic A311D board:  ft5406--5p43
+                    busConfig {
+                        // 0:i2c 1:spi
+                        busType = 0;
+                        busNum = 7;
+                        clkGpio = 2;
+                        dataGpio = 1;
+                        i2cClkIomux = [0x0, 0x0];
+                        i2cDataIomux = [0x0, 0x0];
+                    }
+                    pinConfig {
+                        rstGpio = 3;
+                        intGpio = 4;
+                        rstRegCfg = [0x0, 0x0];
+                        intRegCfg = [0x0, 0x0];
+                    }
                     powerConfig {
                         /* 0:unused 1:ldo 2:gpio 3:pmic */
-                        vccType = 2;
+                        vccType = 0;
                         vccNum = 20;    // gpio20
                         vccValue = 1800;
                         vciType = 1;
@@ -91,12 +108,12 @@ root {
                 chipConfig {
                     template touchChip {
                         match_attr = "";
-                        chipName = "gt911";
+                        chipName = "ft5406";
                         vendorName = "zsj";
                         chipInfo = "AAAA11222";  // 4-ProjectName, 2-TP IC, 3-TP Module
                         /* 0:i2c 1:spi*/
                         busType = 0;
-                        deviceAddr = 0x5D;
+                        deviceAddr = 0x38;
                         /* 0:None 1:Rising 2:Failing 4:High-level 8:Low-level */
                         irqFlag = 2;
                         maxSpeed = 400;
@@ -120,27 +137,8 @@ root {
                     }
 
                     chip0 :: touchChip {
-                        match_attr = "zsj_gt911_5p5";
-                        chipInfo = "ZIDN45100";  // 4-ProjectName, 2-TP IC, 3-TP Module
-                        chipVersion = 0; //parse point by TypeA
-                    }
-
-                    chip1 :: touchChip {
-                        match_attr = "zsj_gt911_4p0";
-                        chipInfo = "ZIDN45101";
-                        chipVersion = 1; //parse point by TypeB
-                    }
-
-                    chip2 :: touchChip {
-                        match_attr = "tg_gt911_7p0";
-                        vendorName = "tg";
-                        chipInfo = "ZIDN45102";
-                        chipVersion = 2; //parse point by TypeC
-                    }
-
-                    chip3 :: touchChip {
-                        match_attr = "st_ft6336_2p35";
-                        chipName = "ft6336";
+                        match_attr = "st_ft5406_5p43";
+                        chipName = "ft5406";
                         vendorName = "st";
                         chipInfo = "ZIDN53200";
                         deviceAddr = 0x38;
@@ -167,40 +165,17 @@ root {
         }
 
         keyConfig {
-            keyList = ["power", "VolUp", "VolDown", "Up", "Down", "Left", "Right"];
+            keyList = ["power"];
             keyInfoList {
                 key1 {
                     match_attr = "key_device0";
-                    /* 0:touch 1:key 2:keyboard 3:mouse 4:button 5:crown 34:encoder */
+                    /* 0:touch 1:key 2:keyboard 3:mouse 4:button 5:crown 6:encoder */
                     inputType = 1;
                     keyName = "power";
-                    gpioNum = 1;
-                    irqFlag = 3;
+                    gpioNum = 475;
+                    irqFlag = 8;
                     debounceTime = 80;
                 }
-
-                key2 {
-                    keyName = "volUp";
-                    gpioNum = 31;
-                    irqFlag = 1;
-                    debounceTime = 80;
-                }
-
-                key3 {
-                    keyName = "volDown";
-                    gpioNum = 32;
-                    irqFlag = 1;
-                    debounceTime = 80;
-                }
-            }
-        }
-        encoderConfig {
-            encoder1 {
-                match_attr = "EC11";
-                inputType = 34;
-                gpioClk = 29;
-                gpioDT  = 30;
-                gpioSW  = 31;
             }
         }
     }

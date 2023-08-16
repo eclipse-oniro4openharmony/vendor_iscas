@@ -7,9 +7,9 @@
   "version": "3.0",
   "board": "rpi4",
   "api_version": 8,
-  "enable_ramdisk": false,
+  "enable_ramdisk": true,
   "build_selinux": false,
-  "build_seccomp": false,
+  "build_seccomp": true,
   "inherit": [ "productdefine/common/inherit/rich.json", "productdefine/common/inherit/chipset_common.json" ],
   "subsystems": [
     {
@@ -27,6 +27,12 @@
         {
           "component": "netmanager_ext",
           "features": []
+        },
+        {
+          "component": "wifi",
+          "features": [
+            "wifi_feature_with_p2p = false"
+          ]
         }
       ]
     },
@@ -63,18 +69,6 @@
       ]
     },
     {
-      "subsystem": "startup",
-      "components": [
-        {
-          "component": "init",
-          "features": [
-            "enable_ohos_startup_init_feature_ab_partition = false",
-            "enable_ohos_startup_init_feature_loader = false"
-          ]
-        }
-      ]
-    },
-    {
       "subsystem": "wpa_supplicant-2.9",
       "components": [
         {
@@ -95,7 +89,26 @@
         {
           "component": "drivers_peripheral_audio",
           "features": [
+            "drivers_peripheral_audio_full_test_suite = true",
             "drivers_peripheral_audio_alsa_lib = false"
+          ]
+        }
+      ]
+    },
+    {
+      "component": "drivers_peripheral_codec",
+      "features": [
+        "drivers_peripheral_codec_support_omx = false"
+      ]
+    },
+    {
+      "subsystem": "startup",
+      "components": [
+        {
+          "component": "init",
+          "features": [
+            "enable_ohos_startup_init_feature_ab_partition = false",
+            "enable_ohos_startup_init_feature_loader = false"
           ]
         }
       ]

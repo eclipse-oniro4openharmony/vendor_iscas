@@ -5,7 +5,7 @@
 #include "platform/hi35xx_uart_config.hcs"
 #include "platform/sdio_config.hcs"
 #include "platform/emmc_config.hcs"
-#include "platform/hi35xx_spi_config.hcs"
+#include "platform/bcm2711_spi_config.hcs"
 #include "input/input_config.hcs"
 #include "wifi/wlan_platform.hcs"
 #include "wifi/wlan_chip_hi3881.hcs"
@@ -18,8 +18,7 @@
 #include "light/light_config.hcs"
 #include "vibrator/vibrator_config.hcs"
 #include "vibrator/linear_vibrator_config.hcs"
-#include "lcd/lcd_config.hcs"
 
 root {
-    module = "hisilicon,hi35xx_chip";
+    module = "broadcom,bcm2711_chip";
 }
