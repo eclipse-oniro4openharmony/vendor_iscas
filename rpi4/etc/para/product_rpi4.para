@@ -13,6 +13,8 @@
 
 const.product.brand=default
 const.build.product=default
+persist.hdc.mode=tcp
+persist.hdc.port=5555
 const.product.name="Raspberrypi 4B"
 const.product.model="Raspberrypi 4B"
 const.product.manufacturer=Raspberrypi
