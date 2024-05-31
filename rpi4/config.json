@@ -1,13 +1,14 @@
 {
   "product_name": "rpi4",
-  "device_company": "iscas",
-  "device_build_path": "device/board/iscas/rpi4",
+  "device_company": "rpi",
+  "device_build_path": "device/board/rpi/rpi4",
   "target_cpu": "arm64",
   "type": "standard",
   "version": "3.0",
   "board": "rpi4",
   "api_version": 8,
   "enable_ramdisk": true,
+  "enable_absystem": false,
   "build_selinux": false,
   "build_seccomp": true,
   "inherit": [ "productdefine/common/inherit/rich.json", "productdefine/common/inherit/chipset_common.json" ],
@@ -16,7 +17,7 @@
       "subsystem": "security",
       "components": [
         {
-          "component": "selinux",
+          "component": "selinux_adapter",
           "features": []
         }
       ]
@@ -31,28 +32,27 @@
         {
           "component": "wifi",
           "features": [
-            "wifi_feature_with_p2p = false"
-          ]
+            "wifi_feature_non_seperate_p2p = true",
+            "wifi_feature_non_hdf_driver = true"
+         ]
         }
       ]
     },
     {
-      "subsystem": "graphic",
+      "subsystem": "product_rpi4",
       "components": [
         {
-          "component": "graphic_standard",
-          "features": [
-            "graphic_standard_feature_ace_enable_gpu = true",
-            "graphic_standard_feature_rs_enable_eglimage = true"
-          ]
+          "component": "product_rpi4",
+          "features": []
         }
       ]
     },
     {
-      "subsystem": "raspberrypi_products",
+      "subsystem": "device_rpi4",
       "components": [
         {
-          "component": "raspberrypi_products"
+          "component": "device_rpi4",
+          "features": []
         }
       ]
     },
@@ -63,7 +63,7 @@
           "component": "ace_engine",
           "features": [
             "ace_engine_feature_enable_accessibility = true",
-            "ace_engine_feature_enable_web = true"
+            "ace_engine_feature_enable_web = false"
           ]
         }
       ]
@@ -87,18 +87,17 @@
           "features": []
         },
         {
+          "component": "drivers_peripheral_display",
+          "features": [
+            "drivers_peripheral_display_community = true"
+          ]
+        },
+        {
           "component": "drivers_peripheral_audio",
           "features": [
-            "drivers_peripheral_audio_full_test_suite = true",
-            "drivers_peripheral_audio_alsa_lib = false"
+            "drivers_peripheral_audio_feature_alsa_lib = false"
           ]
         }
-      ]
-    },
-    {
-      "component": "drivers_peripheral_codec",
-      "features": [
-        "drivers_peripheral_codec_support_omx = false"
       ]
     },
     {
@@ -107,8 +106,20 @@
         {
           "component": "init",
           "features": [
-            "enable_ohos_startup_init_feature_ab_partition = false",
-            "enable_ohos_startup_init_feature_loader = false"
+            "enable_ohos_startup_init_feature_ab_partition = true",
+            "enable_ohos_startup_init_feature_loader = true"
+          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "graphic",
+      "components": [
+        {
+          "component": "graphic_2d",
+          "features": [
+            "graphic_2d_feature_ace_enable_gpu = true",
+            "graphic_2d_feature_rs_enable_eglimage = true"
           ]
         }
       ]
