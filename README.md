@@ -9,20 +9,22 @@
 ```
 vendor/rpi
 ├── README.md
-└── rpi3                  # 树莓派3B开发板           
-    ├── config.json       # 产品模块详细配置目录
-    ├── hals              # hal层相关配置目录
-    ├── hdf_config        # hdf相关hcs目录
-    ├── power_config      # 电源配置目录
-    └── product.gni
-└── rpi4                  # 树莓派4B开发板
+└── common                 # 通用路径           
+    ├── bluetooth           
+    ├── custom_conf        
+    ├── default_app_config 
+    ├── image_conf          
+    ├── resourceschedule      
+    └── sample
+└── rpi3                   # 树莓派3B开发板(未适配) 
+└── rpi4                   # 树莓派4B开发板
    ├── audio
-   ├── default_app_cinfig
    ├── etc
+   ├── hal
+   ├── hdf_config
    ├── image_conf
+   ├── power_config
    ├── preinstall-config
-   ├── resourceschedule
-   ├── sample
    ├── security_config
    ├── updater_config
    └── product.gni
