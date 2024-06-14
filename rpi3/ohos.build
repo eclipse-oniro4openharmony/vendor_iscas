@@ -1,0 +1,16 @@
+{
+  "parts": {
+    "product_rpi3": {
+      "module_list": [
+        "//vendor/${product_company}/common/default_app_config:default_app_config",
+        "//vendor/${product_company}/common/image_conf:custom_image_conf",
+        "//vendor/${product_company}/${device_name}/preinstall-config:preinstall-config",
+        "//vendor/${product_company}/common/resourceschedule:resourceschedule",
+        "//vendor/${product_company}/${device_name}/etc:product_etc_conf",
+        "//vendor/${product_company}/common/custom_conf:custom_config",
+        "//vendor/${product_company}/${device_name}/hdf_config/uhdf:hdf_config"
+      ]
+    }
+  },
+  "subsystem": "product_raspberrypi"
+}
