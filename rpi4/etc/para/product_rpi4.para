@@ -18,3 +18,4 @@ persist.hdc.port=5555
 const.product.name="Raspberrypi 4B"
 const.product.model="Raspberrypi 4B"
 const.product.manufacturer=Raspberrypi
+const.security.developermode.state=1
