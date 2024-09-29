@@ -2,7 +2,7 @@
   "product_name": "rpi4",
   "device_company": "rpi",
   "device_build_path": "device/board/rpi/rpi4",
-  "target_cpu": "arm64",
+  "target_cpu": "arm",
   "type": "standard",
   "version": "3.0",
   "board": "rpi4",
@@ -62,9 +62,11 @@
         {
           "component": "ace_engine",
           "features": [
-            "ace_engine_feature_enable_accessibility = true",
-            "ace_engine_feature_enable_web = false"
           ]
+        },
+        {
+          "component": "ui_appearance",
+          "features": []
         }
       ]
     },
@@ -107,8 +109,6 @@
         {
           "component": "init",
           "features": [
-            "enable_ohos_startup_init_feature_ab_partition = true",
-            "enable_ohos_startup_init_feature_loader = true"
           ]
         }
       ]
@@ -119,7 +119,6 @@
         {
           "component": "device_status",
           "features": [
-            "fusion_interaction_coordination = false"
           ]
         }
       ]
