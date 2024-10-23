@@ -6,6 +6,16 @@
             "gid": "root"
         },
         {
+            "name": "cjappspawn",
+            "uid": "root",
+            "gid": "root"
+        },
+        {
+            "name": "nativespawn",
+            "uid": "root",
+            "gid": "root"
+        },
+        {
             "name": "console",
             "uid": "root"
         },
@@ -38,6 +48,11 @@
             "gid": "root"
         },
         {
+            "name": "resource_schedule_executor",
+            "uid": "root",
+            "gid": "root"
+        },
+        {
             "name": "storage_daemon",
             "uid": "root",
             "gid": "root"
@@ -63,6 +78,16 @@
         },
         {
             "name": "key_enable",
+            "uid": "root",
+            "gid": "root"
+        },
+        {
+            "name": "check_module_update",
+            "uid": "root",
+            "gid": "root"
+        },
+        {
+            "name": "module_update_sa",
             "uid": "root",
             "gid": "root"
         }
