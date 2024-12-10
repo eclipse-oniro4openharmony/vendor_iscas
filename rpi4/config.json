@@ -191,19 +191,6 @@
       ]
     },
     {
-      "subsystem": "castplus",
-      "components": [
-        {
-          "component": "sharing_framework",
-          "features": []
-        },
-        {
-          "component": "cast_engine",
-          "features": []
-        }
-      ]
-    },
-    {
       "subsystem": "thirdparty",
       "components": [
         {
