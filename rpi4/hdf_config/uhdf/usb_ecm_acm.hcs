@@ -2,15 +2,15 @@ root {
     module = "usbfn";
     acm_device_config {
         match_attr = "usbfn_cdcacm_driver";
-        udc_name = "fcc00000.dwc3";
+        udc_name = "fe980000.usb";
     }
     ecm_device_config {
         match_attr = "usbfn_cdcecm_driver";
-        udc_name = "fcc00000.dwc3";
+        udc_name = "fe980000.usb";
     }
     mtp_device_config {
         match_attr = "usbfn_mtp_interface_driver";
-        udc_name = "fcc00000.dwc3";
+        udc_name = "fe980000.usb";
     }
     usb_device_config {
         match_attr = "usb_device_interface_driver";
@@ -19,7 +19,7 @@ root {
     usbfn_config {
         match_attr = "usbfn_driver";
         use_hcs = 1;
-        udc_name = "fcc00000.dwc3";
+        udc_name = "fe980000.usb";
         usb_dev_desc = "UsbDeviceDescriptor";
         usb_dev_string = "UsbDeviceStrings";
         usb_configuration = "UsbConfigs";
