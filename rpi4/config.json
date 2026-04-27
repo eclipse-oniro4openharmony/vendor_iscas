@@ -72,17 +72,6 @@
       ]
     },
     {
-      "subsystem": "wpa_supplicant",
-      "components": [
-        {
-          "component": "wpa_supplicant",
-          "features": [
-            "wpa_supplicant_driver_nl80211 = true"
-          ]
-        }
-      ]
-    },
-    {
       "subsystem": "hdf",
       "components": [
         {
@@ -92,6 +81,10 @@
         {
           "component": "drivers_peripheral_ril",
           "features":[]
+        },
+        {
+          "component": "drivers_interface_bluetooth",
+          "features": []
         },
         {
           "component": "drivers_interface_audio",
@@ -123,13 +116,16 @@
           "component": "drivers_peripheral_wlan",
           "features": [
             "drivers_peripheral_wlan_feature_enable_HDF_NL80211 = true",
-            "drivers_peripheral_wlan_feature_enable_HDF_UT = false"
+            "drivers_peripheral_wlan_feature_enable_HDF_UT = false",
+            "drivers_peripheral_wlan_feature_vendor = default",
+            "drivers_peripheral_wlan_p2p_name = p2p-dev-wlan0"
           ]
         },
         {
           "component": "hdf_core",
           "features": [
-            "hdf_core_platform_test_support = true"
+            "hdf_core_platform_test_support = true",
+            "hdf_core_default_peripheral_config = false"
           ]
         }
       ]
@@ -140,25 +136,27 @@
         {
           "component": "init",
           "features": [
+            "init_feature_ab_partition = true"
           ]
         }
       ]
     },
     {
-      "subsystem": "ai",
-      "components": [
-          {
-            "component": "mindspore",
-            "features": []
-          }
-        ]
-      },
+    "subsystem": "ai",
+    "components": [
+        {
+          "component": "mindspore",
+          "features": []
+        }
+      ]
+    },
     {
       "subsystem": "msdp",
       "components": [
         {
           "component": "device_status",
           "features": [
+            "device_status_interaction_coordination = false"
           ]
         }
       ]
@@ -167,12 +165,19 @@
       "subsystem": "communication",
       "components": [
         {
+          "component": "netmanager_ext",
+          "features": []
+        },
+        {
+          "component": "bluetooth_service",
+          "features": []
+        },
+        {
           "component": "wifi",
           "features": [
             "wifi_feature_non_seperate_p2p = true",
             "wifi_feature_non_hdf_driver = true",
-            "wifi_feature_p2p_random_mac_addr = false",
-            "wifi_feature_with_hdi_chip_supported = false"
+            "wifi_feature_p2p_random_mac_addr = true"
          ]
         }
       ]
@@ -191,6 +196,19 @@
       ]
     },
     {
+      "subsystem": "castplus",
+      "components": [
+        {
+          "component": "sharing_framework",
+          "features": []
+        },
+        {
+          "component": "cast_engine",
+          "features": []
+        }
+      ]
+    },
+    {
       "subsystem": "thirdparty",
       "components": [
         {
@@ -203,6 +221,24 @@
           "component": "wpa_supplicant",
           "features": [
             "wpa_supplicant_driver_nl80211 = true"
+          ]
+        },
+        {
+          "component": "noto-cjk",
+          "features": []
+        },
+        {
+          "component": "notofonts",
+          "features": []
+        },
+        {
+          "component": "tex-hyphen",
+          "features": []
+        },
+        {
+          "component": "qrcodegen",
+          "features": [
+            "qrcodegen_feature_ace_engine_qrcode_able = true"
           ]
         }
       ]
@@ -222,7 +258,10 @@
         {
           "component": "usb_manager",
           "features": [
-            "usb_manager_feature_pop_up_func_switch_model = false"
+            "usb_manager_feature_pop_up_func_switch_model = false",
+            "usb_manager_feature_host = true",
+            "usb_manager_feature_device = true",
+            "usb_manager_feature_port = true"
           ]
         }
       ]
@@ -261,9 +300,19 @@
         {
           "component": "hiview",
           "features": [
+            "hiview_feature_bbox_userspace = true",
             "hiview_enable_leak_detector = true",
             "hiview_enable_performance_monitor = true"
           ]
+        }
+      ]
+    },
+    {
+      "subsystem": "ability",
+      "components": [
+        {
+          "component": "idl_tool",
+          "features": []
         }
       ]
     }
