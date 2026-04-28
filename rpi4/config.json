@@ -24,20 +24,6 @@
       ]
     },
     {
-      "subsystem": "communication",
-      "components": [
-        {
-          "component": "netmanager_ext",
-          "features": []
-        },
-        {
-          "component": "bluetooth_service",
-          "features": []
-        }
-
-      ]
-    },
-    {
       "subsystem": "product_rpi4",
       "components": [
         {
@@ -62,7 +48,8 @@
           "component": "ace_engine",
           "features": [
             "ace_engine_feature_enable_accessibility = true",
-            "ace_engine_feature_enable_web = true"
+            "ace_engine_feature_enable_web = true",
+            "ace_engine_feature_enable_upgrade_skia = true"
           ]
         },
         {
@@ -74,6 +61,10 @@
     {
       "subsystem": "hdf",
       "components": [
+        {
+          "component": "drivers_interface_lpplayer",
+          "features":[]
+        },
         {
           "component": "drivers_interface_ril",
           "features": []
@@ -124,7 +115,7 @@
         {
           "component": "hdf_core",
           "features": [
-            "hdf_core_platform_test_support = true",
+            "hdf_core_platform_test_support = false",
             "hdf_core_default_peripheral_config = false"
           ]
         }
@@ -136,7 +127,6 @@
         {
           "component": "init",
           "features": [
-            "init_feature_ab_partition = true"
           ]
         }
       ]
@@ -166,7 +156,10 @@
       "components": [
         {
           "component": "netmanager_ext",
-          "features": []
+          "features": [],
+          "syscap": [
+            "SystemCapability.Communication.NetManager.NetFirewall = false"
+          ]
         },
         {
           "component": "bluetooth_service",
@@ -192,6 +185,16 @@
             "audio_framework_feature_opensl_es = true",
             "audio_framework_feature_support_os_account = false"
           ]
+        },
+        {
+          "component": "video_processing_engine",
+          "features": []
+        },
+        {
+          "component": "image_framework",
+          "features": [
+            "image_framework_feature_upgrade_skia = true"
+          ]
         }
       ]
     },
@@ -212,6 +215,10 @@
       "subsystem": "thirdparty",
       "components": [
         {
+          "component": "rust_libc",
+          "features": []
+        },
+        {
           "component": "libuv",
           "features": [
             "libuv_use_ffrt = true"
@@ -222,6 +229,10 @@
           "features": [
             "wpa_supplicant_driver_nl80211 = true"
           ]
+        },
+        {
+          "component": "pcre2",
+          "features": []
         },
         {
           "component": "noto-cjk",
@@ -240,6 +251,38 @@
           "features": [
             "qrcodegen_feature_ace_engine_qrcode_able = true"
           ]
+        },
+        {
+          "component": "alsa-lib",
+          "features": [
+            "alsa_lib_feature_config_enable = true"
+          ]
+        },
+        {
+          "component": "protobuf",
+          "features": []
+        },
+        {
+          "component": "abseil-cpp",
+          "features": []
+        },
+        {
+          "component": "libusb",
+          "features": []
+        },
+        {
+          "component": "skia",
+          "features": [
+            "skia_feature_upgrade = true"
+          ]
+        },
+        {
+          "component": "optimized_routines",
+          "features": []
+        },
+        {
+          "component": "typescript",
+          "features": []
         }
       ]
     },
@@ -273,8 +316,13 @@
           "component": "graphic_2d",
           "features": [
             "graphic_2d_feature_rs_enable_eglimage = true",
-            "graphic_2d_feature_use_texgine = true"
+            "graphic_2d_feature_use_texgine = true",
+            "graphic_2d_feature_upgrade_skia = true"
           ]
+        },
+        {
+          "component": "graphics_effect",
+          "features": []
         },
         {
           "component": "graphic_surface",
@@ -282,6 +330,10 @@
         },
         {
           "component": "graphic_3d",
+          "features": []
+        },
+        {
+          "component": "graphic_utils_lite",
           "features": []
         },
         {
@@ -312,6 +364,44 @@
       "components": [
         {
           "component": "idl_tool",
+          "features": []
+        }
+      ]
+    },
+    {
+      "subsystem": "telephony",
+      "components": [
+        {
+          "component": "core_service",
+          "syscap": [
+            "SystemCapability.Telephony.CoreService.Esim = false"
+          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "sdk",
+      "components": [
+        {
+          "component": "sdk",
+          "features": []
+        }
+      ]
+    },
+    {
+      "subsystem": "global",
+      "components": [
+        {
+          "component": "font_manager",
+          "features": []
+        }
+      ]
+    },
+    {
+      "subsystem": "developtools",
+      "components": [
+        {
+          "component": "ace_ets2bundle",
           "features": []
         }
       ]
