@@ -16,6 +16,11 @@
             "gid": "root"
         },
         {
+            "name": "hybridspawn",
+            "uid": "root",
+            "gid": "root"
+        },
+        {
             "name": "console",
             "uid": "root"
         },
@@ -88,6 +93,11 @@
         },
         {
             "name": "module_update_sa",
+            "uid": "root",
+            "gid": "root"
+        },
+        {
+            "name": "sys_installer_sa",
             "uid": "root",
             "gid": "root"
         }
