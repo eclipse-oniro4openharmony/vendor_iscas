@@ -59,6 +59,17 @@
       ]
     },
     {
+      "subsystem": "developtools",
+      "components": [
+        {
+          "component": "smartperf_host",
+          "features": [
+            "smartperf_host_device = true"
+          ]
+        }
+      ]
+    },
+    {
       "subsystem": "hdf",
       "components": [
         {
@@ -79,7 +90,9 @@
         },
         {
           "component": "drivers_interface_audio",
-          "features": []
+          "features": [
+            "drivers_interface_audio_community = true"
+          ]
         },
         {
           "component": "drivers_peripheral_audio",
@@ -118,6 +131,14 @@
             "hdf_core_platform_test_support = false",
             "hdf_core_default_peripheral_config = false"
           ]
+        },
+        {
+          "component": "drivers_tools",
+          "features": []
+        },
+        {
+          "component": "drivers_adapter",
+          "features": []
         }
       ]
     },
@@ -183,7 +204,8 @@
           "features": [
             "audio_framework_feature_dtmf_tone = true",
             "audio_framework_feature_opensl_es = true",
-            "audio_framework_feature_support_os_account = false"
+            "audio_framework_feature_support_os_account = false",
+            "audio_framework_feature_audiosuite_support = true"
           ]
         },
         {
@@ -282,6 +304,10 @@
         },
         {
           "component": "typescript",
+          "features": []
+        },
+        {
+          "component": "libtiff",
           "features": []
         }
       ]
