@@ -50,6 +50,7 @@ bypass_audio_framework = [
   "audio_toneplayer",
   "audio_service",
   "audio_policy_client",
+  "audio_policy_client_static",
   "module-loopback",
   "module-inner-capturer-sink",
   "module-hdi-sink",
@@ -123,19 +124,24 @@ bypass_av_session = [
   "avcastpicker",
   "mediacontrolextensionability_napi",
   "avsession_client",
+  "avsession_client_static",
   "mediacontrolextensioncontext_napi",
   "media_control_extension",
   "media_control_extension_module",
   "avsession_item",
+  "avsession_item_static",
   "avsession_common",
   "avsession_napi",
   "avsession_utils",
   "avsession_cast_client",
   "avsession_service",
+  "avsession_service_static",
   "remote_session_source",
   "avsession_router",
+  "avsession_router_static",
   "remote_session_sink",
   "avsession_cast_item",
+  "avsession_cast_item_static",
 ]
 
 # huks : //base/security/huks
@@ -212,6 +218,11 @@ bypass_netmanager_base = [
   "net_policy_manager_if",
   "socket_permission",
   "netconn_ndk",
+  "netsys_controller_static",
+  "net_conn_manager_static",
+  "net_policy_manager_static_no_cfi",
+  "net_pac_manager",
+  "net_pac_manager_static",
 ]
 
 # camera_framework : //foundation/multimedia/camera_framework
@@ -312,6 +323,7 @@ bypass_hilog = [
   "libhilog_source_android",
   "libhilog_source_ios",
   "libhilog_base_source",
+  "libhilog_base_for_musl",
 ]
 
 # bluetooth : //foundation/communication/bluetooth
@@ -398,6 +410,7 @@ bypass_user_auth_framework = [
   "iam_thread_pool",
   "iam_utils",
   "iam_test",
+  "iam_inner_api",
   "userauthextensionability_napi",
   "user_auth_extension",
   "user_auth_extension_module",
@@ -414,6 +427,7 @@ bypass_user_auth_framework = [
   "userauth_service_base",
   "userauth_service_context",
   "userauth_services_ipc",
+  "userauth_service_load_mode",
   "userauth_service_remote_connect",
   "attributes_fuzzer",  #cfi not configured
   "dfx_fuzzer",  #cfi not configured
@@ -490,6 +504,9 @@ bypass_time_service = [ "time_system_ability_static" ]
 # imf : //base/inputmethod/imf
 bypass_imf = [
   "inputmethod_client",  # client target, not required to enable cfi
+  "inputmethod_client_fuzz_static",  # test target, not required to enable cfi
+  "inputmethod_ability_fuzz_static",  # test target, not required to enable cfi
+  "inputmethod_fuzztest_common",  # test target, not required to enable cfi
 ]
 
 # location : //base/location
@@ -600,6 +617,7 @@ bypass_window_manager = [
   "demo_water_mark_listener",  #cfi not configured
   "demo_session_manager",  #cfi not configured
   "demo_visible_window_num_listener",  #cfi not configured
+  "demo_outline_virtual_media_service",  #cfi not configured
   "ws_unittest_common",  #cfi not configured
   "utils_unittest_common",  #cfi not configured
   "window_extension_unittest_common",  #cfi not configured
@@ -622,14 +640,20 @@ bypass_qos_manager = [
 bypass_call_manager = [
   "call",  # napi target, not required to enable cfi
   "tel_call_manager_api",  # client target, not required to enable cfi
+  "call_manager_test_base",  # client target, not required to enable cfi
+
 ]
 
-bypass_cellular_call = []
+bypass_cellular_call = [
+    "cellular_call_test_base",  # client target, not required to enable cfi
+]
 
 # core_service : //base/telephony/core_service
 bypass_core_service = [
   "vcard",  #cfi not configured
   "libtel_vcard",  #cfi not configured
+  "ffrt_mocked", #test target, not required to enable cfi
+  "core_service_test_base", #test target, not required to enable cfi
 ]
 
 bypass_rill_adapter = []
@@ -659,6 +683,7 @@ bypass_eventhandler = [ "libeventhandler" ]
 # os_account : //base/account/os_account
 bypass_os_account = [
   "account_iam_napi",  # napi target, not required to enable cfi
+  "authorization_napi",  # napi target, not required to enable cfi
   "appaccount",  # napi target, not required to enable cfi
   "account_napi_common",  # napi target, not required to enable cfi
   "distributedaccount",  # napi target, not required to enable cfi
@@ -857,6 +882,7 @@ bypass_init = [
   "sh",  #cfi not configured
   "libcrashhandler",  #cfi not configured
   "parameterbase",  #cfi not configured
+  "parameterbase_noflto",  #cfi not configured
   "remount",  #cfi not configured
   "syscap_ts",  #cfi not configured
 ]
@@ -1064,6 +1090,7 @@ bypass_ability_runtime = [
   "callee_napi",  #cfi not configured
   "actionextensionability_napi",  #cfi not configured
   "extensioncontext_napi",  #cfi not configured
+  "insightintentdecorator_napi",  #cfi not configured
   "insightintentdriver_napi",  #cfi not configured
   "abilityconstant",  #cfi not configured
   "missionmanager",  #cfi not configured
@@ -1133,6 +1160,8 @@ bypass_hiview = [
   "hiviewbase",
   "hiviewbase_static_lib_for_tdd",
   "hiview_core_for_test",
+  "hiview_param_update_for_tdd",
+  "hiviewplatform_config_for_tdd",
   "hiview_service_impl",
   "hiview_service_impl_for_unified_collection",
   "hiview_service_impl_for_js",
@@ -1186,6 +1215,7 @@ bypass_hiview = [
   "event_store_config_source",
   "eventlogger_adapter_logcatcher",
   "faultlogger_service_fuzz_src",
+  "faultlog_ext_zidl_proxy_for_test",
 ]
 
 bypass_device_standby = []
@@ -1222,9 +1252,11 @@ bypass_device_info_manager = [
 
 bypass_dfs_service = []
 
-bypass_dlp_permission_service = []
+bypass_dlp_permission_service = [ "ohdlp_permission" ]
 
-bypass_cellular_data = []
+bypass_cellular_data = [
+  "tel_cellular_data_static",  # test target, not required to enable cfi
+]
 
 # request : //base/request/request
 bypass_request = [
@@ -1305,6 +1337,7 @@ bypass_soc_perf = [ "socperf_test" ]
 bypass_update_service = [
   "update",
   "updateservice",
+  "update_session",
 ]
 
 # graphic_2d : //foundation/graphic/graphic_2d
@@ -1481,6 +1514,12 @@ bypass_graphic_2d = [
   "hdr_capability_utils",
   "hdr_capability_napi",
   "libnative_display_soloist",
+  "libnative_color_space_manager",
+  "rs_graphic_test_src",
+  "rs_graphic_test",
+  "rs_graphic_test_main",
+  "font_asset",
+  "layer_backend_test_impl",  # test target with gmock, not required to enable cfi
 ]
 
 # security_component_manager : //base/security/security_component_manager
@@ -1489,6 +1528,9 @@ bypass_security_component_manager = [
   "security_component_no_cfi_enhance_adapter_src_set",
   "security_component_no_cfi_framework_src_set",
   "security_component_no_cfi_enhance_sdk_src_set",
+  "sec_comp_service_stub_no_cfi",
+  "sec_comp_no_cfi_service_proxy",
+  "security_component_no_cfi_disable_enhance_adapter_src_set",
 ]
 
 # distributed_bundle_framework : //foundation/bundlemanager/distributed_bundle_framework
@@ -1508,8 +1550,8 @@ bypass_device_manager = [
 bypass_hdf_core = [
   "libhdf_ipc_adapter",
   "libhdf_host",
-  "hdf_devhost",
   "libhdi",
+  "libhdi_base",
   "libpub_utils",
   "libhdf_utils",
   "libhdf_platform",
@@ -1520,6 +1562,11 @@ bypass_hdf_core = [
   "libvdi_sample1_driver",
   "libvdi_sample1_symbol",
   "libvdi_sample2_driver",
+]
+
+# drivers_adapter : //drivers/peripheral/adapter
+bypass_drivers_adapter = [
+  "hdf_devhost",
 ]
 
 # The list contains both part name that need to enable cfi and disable debug mode, and corresponding bypass_xxx list that bypass the cfi check
@@ -1990,6 +2037,10 @@ enable_cfi_part_and_bypass_list = [
   [
     "hdf_core",
     bypass_hdf_core,
+  ],
+  [
+    "drivers_adapter",
+    bypass_drivers_adapter,
   ],
 ]
 
