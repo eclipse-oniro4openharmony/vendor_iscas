@@ -1,0 +1,54 @@
+# Notices for Eclipse Oniro for OpenHarmony — Raspberry Pi product configuration
+
+This content is maintained by the Eclipse Oniro for OpenHarmony project
+(product / vendor configuration for the Raspberry Pi targets).
+
+* https://projects.eclipse.org/projects/oniro.oniro4openharmony
+
+## Source Code
+
+The project maintains the following source code repository for this content:
+
+* https://github.com/eclipse-oniro4openharmony/vendor_iscas
+
+## Copyright
+
+All content is the property of the respective authors or their employers. For
+more information regarding authorship of content, please consult the listed
+source code repository logs.
+
+## Declared Project License
+
+This program and the accompanying materials are made available under the terms
+of the Apache License, Version 2.0, which is available at
+https://www.apache.org/licenses/LICENSE-2.0.
+
+    SPDX-License-Identifier: Apache-2.0
+
+## Third-party Content
+
+This repository contains no binaries. The third-party source it carries is:
+
+### Broadcom Bluetooth vendor library
+
+* Files: `common/bluetooth/src/{bt_vendor_brcm.c,conf.c,hardware.c,upio.c,userial_vendor.c}`
+  and `common/bluetooth/include/{bt_hci_bdroid.h,bt_vendor_brcm.h,esco_parameters.h,uipc_msg.h,upio.h,userial.h,userial_vendor.h}`
+* The Android Bluetooth HAL vendor library for Broadcom controllers.
+  Copyright (C) 1999-2012 Broadcom Corporation.
+* License: Apache-2.0
+* Project: https://source.android.com/
+
+### OpenHarmony vendor configuration templates
+
+* Files: various `BUILD.gn`, `product.gni` and configuration files derived from
+  the upstream OpenHarmony vendor templates.
+  Copyright (c) 2022 Huawei Device Co., Ltd.
+* License: Apache-2.0
+* Project: https://gitcode.com/openharmony
+
+### Raspberry Pi OpenHarmony port
+
+* Files: parts of the `rpi3/` and `rpi4/` configuration trees.
+  Copyright (c) 2022 Diemit &lt;598757652@qq.com&gt;
+* Inbound contribution from the community OpenHarmony-on-Raspberry-Pi port.
+* License: Apache-2.0
